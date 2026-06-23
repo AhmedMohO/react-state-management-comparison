@@ -1064,3 +1064,90 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
 }
 
+/* ==========================================================================
+   EXPERIMENT CARD STYLES
+   ========================================================================== */
+.experiment-card {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(59, 130, 246, 0.08) 100%);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.experiment-card-glow {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  background: var(--accent-purple);
+  filter: blur(60px);
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.experiment-card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--accent-purple);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.experiment-card-description {
+  font-size: 0.925rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+.experiment-card-code {
+  background: rgba(2, 6, 17, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 0.85rem 1.1rem;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+  line-height: 1.45;
+}
+
+.experiment-card-note {
+  font-size: 0.875rem;
+  color: var(--accent-amber);
+  margin: 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.4;
+}
+
+.exp-code-comment {
+  color: #64748b;
+}
+
+.exp-code-purple {
+  color: var(--accent-purple);
+}
+
+.exp-code-blue {
+  color: var(--accent-blue);
+}
+
+.exp-code-teal {
+  color: var(--accent-teal);
+}
+
+
+

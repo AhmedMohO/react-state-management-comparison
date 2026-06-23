@@ -255,6 +255,55 @@ export const ContextDemo = () => {
 						Only the Provider and the DeepChild consumer re-render.
 					</p>
 				</div>
+				{/* NOTE: Ask AI for guidance if you don't know how to implement experiment card */}
+				<div className="experiment-card">
+					<div className="experiment-card-glow" />
+
+					<h4 className="experiment-card-title">
+						🧪 Live Experiment: Children vs Direct Nesting
+					</h4>
+
+					<p className="experiment-card-description">
+						Want to see how React's composition pattern saves performance? Open{" "}
+						<code>src/components/ContextDemo.jsx</code> and look at lines{" "}
+						<strong>293-295</strong>:
+					</p>
+
+					<div className="experiment-card-code">
+						<span className="exp-code-comment">
+							// Current Pattern (Composition):
+						</span>
+						<br />
+						&lt;<span className="exp-code-purple">ContextTree</span>&gt;
+						<br />
+						&nbsp;&nbsp;&nbsp;&nbsp;&lt;
+						<span className="exp-code-blue">Parent</span> /&gt;
+						<br />
+						&lt;/<span className="exp-code-purple">ContextTree</span>&gt;
+						<br />
+						<br />
+						<span className="exp-code-comment">
+							// Try changing to direct nesting:
+						</span>
+						<br />
+						<span className="exp-code-teal">
+							1. In ContextTree component (lines 217-232), replace{" "}
+							{"{children}"} with &lt;Parent /&gt;
+						</span>
+						<br />
+						<span className="exp-code-teal">
+							2. In ContextDemo (lines 347-349), change it to simply
+							&lt;ContextTree /&gt;
+						</span>
+					</div>
+
+					<p className="experiment-card-note">
+						<span>💡</span> <strong>Observe:</strong> Once changed, watch the
+						render counters for <em>Parent</em>, <em>Child</em>, and{" "}
+						<em>Grandchild</em> flash on every toggle. Currently, they don't
+						re-render at all!
+					</p>
+				</div>
 
 				<div className="demo-tree">
 					<ContextTree>
