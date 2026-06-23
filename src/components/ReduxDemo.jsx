@@ -27,19 +27,19 @@ import {
 const DeepChild = () => {
 	const dispatch = useDispatch();
 	// Subscribing to specific user state using useSelector
-	const user = useSelector((state) => state.user);
+	// const user = useSelector((state) => state.user);
 
-	const [isEditing, setIsEditing] = useState(false);
-	const [editName, setEditName] = useState(user.name);
-	const [editEmail, setEditEmail] = useState(user.email);
-	const [editRole, setEditRole] = useState(user.role);
+	// const [isEditing, setIsEditing] = useState(false);
+	// const [editName, setEditName] = useState(user.name);
+	// const [editEmail, setEditEmail] = useState(user.email);
+	// const [editRole, setEditRole] = useState(user.role);
 
 	const handleSave = (e) => {
 		e.preventDefault();
-		dispatch(
-			updateProfile({ name: editName, email: editEmail, role: editRole }),
-		);
-		setIsEditing(false);
+		// dispatch(
+		// 	updateProfile({ name: editName, email: editEmail, role: editRole }),
+		// );
+		// setIsEditing(false);
 	};
 
 	return (
@@ -50,7 +50,7 @@ const DeepChild = () => {
 				<h4 className="card-title">Interactive Control Center</h4>
 
 				{/* User Card View */}
-				<div className="user-info-card">
+				{/* <div className="user-info-card">
 					<div className="user-info-item">
 						<User size={16} className="icon" />
 						<span className="info-label">Name:</span>
@@ -80,11 +80,11 @@ const DeepChild = () => {
 						<span className="info-label">Notifications:</span>
 						<span className="badge-count">{user.notifications}</span>
 					</div>
-				</div>
+				</div> */}
 
 				{/* Action Controls */}
 				<div className="action-controls">
-					{isEditing ? (
+					{/* {isEditing ? (
 						<form onSubmit={handleSave} className="edit-form">
 							<div className="input-group">
 								<label>Name</label>
@@ -128,39 +128,39 @@ const DeepChild = () => {
 								</button>
 							</div>
 						</form>
-					) : (
-						<div className="control-buttons">
+					) : ( */}
+					<div className="control-buttons">
+						{/* <button
+							onClick={() => setIsEditing(true)}
+							className="btn btn-primary">
+							Edit Profile
+						</button> */}
+						<button
+							onClick={() => dispatch(toggleTheme())}
+							className="btn btn-secondary">
+							{/* {user.theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}{" "} */}
+							Toggle Theme
+						</button>
+						<div className="notification-controls">
+							<span className="control-label">Notifications:</span>
 							<button
-								onClick={() => setIsEditing(true)}
-								className="btn btn-primary">
-								Edit Profile
+								onClick={() => dispatch(incrementNotifications())}
+								className="btn-icon">
+								<Plus size={14} />
 							</button>
 							<button
-								onClick={() => dispatch(toggleTheme())}
-								className="btn btn-secondary">
-								{user.theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}{" "}
-								Toggle Theme
+								onClick={() => dispatch(decrementNotifications())}
+								className="btn-icon">
+								<Minus size={14} />
 							</button>
-							<div className="notification-controls">
-								<span className="control-label">Notifications:</span>
-								<button
-									onClick={() => dispatch(incrementNotifications())}
-									className="btn-icon">
-									<Plus size={14} />
-								</button>
-								<button
-									onClick={() => dispatch(decrementNotifications())}
-									className="btn-icon">
-									<Minus size={14} />
-								</button>
-								<button
-									onClick={() => dispatch(clearNotifications())}
-									className="btn-icon text-red">
-									<RotateCcw size={14} />
-								</button>
-							</div>
+							<button
+								onClick={() => dispatch(clearNotifications())}
+								className="btn-icon text-red">
+								<RotateCcw size={14} />
+							</button>
 						</div>
-					)}
+					</div>
+					{/* )} */}
 				</div>
 			</div>
 		</RenderVisualizer>
@@ -224,7 +224,7 @@ const Parent = () => {
 // ==========================================
 // STORE SUBSCRIBER MONITOR NODE
 // ==========================================
-const ReduxTree = () => {
+const ReduxTree = ({ children }) => {
 	const user = useSelector((state) => state.user);
 	return (
 		<RenderVisualizer
@@ -235,7 +235,7 @@ const ReduxTree = () => {
 					<h5>Current Redux Store State:</h5>
 					<pre>{JSON.stringify(user, null, 2)}</pre>
 				</div>
-				<Parent />
+				{children}
 			</div>
 		</RenderVisualizer>
 	);
@@ -265,7 +265,9 @@ export const ReduxDemo = () => {
 				</div>
 
 				<div className="demo-tree">
-					<ReduxTree />
+					<ReduxTree>
+						<Parent />
+					</ReduxTree>
 				</div>
 			</div>
 		</Provider>

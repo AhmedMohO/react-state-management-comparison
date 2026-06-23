@@ -19,7 +19,7 @@ import {
 const DeepChild = () => {
 	// Consuming context directly
 	const {
-		user,
+		// user,
 		updateProfile,
 		toggleTheme,
 		incrementNotifications,
@@ -28,13 +28,13 @@ const DeepChild = () => {
 	} = useUserContext();
 
 	const [isEditing, setIsEditing] = useState(false);
-	const [editName, setEditName] = useState(user.name);
-	const [editEmail, setEditEmail] = useState(user.email);
-	const [editRole, setEditRole] = useState(user.role);
+	// const [editName, setEditName] = useState(user.name);
+	// const [editEmail, setEditEmail] = useState(user.email);
+	// const [editRole, setEditRole] = useState(user.role);
 
 	const handleSave = (e) => {
 		e.preventDefault();
-		updateProfile(editName, editEmail, editRole);
+		// updateProfile(editName, editEmail, editRole);
 		setIsEditing(false);
 	};
 
@@ -45,7 +45,7 @@ const DeepChild = () => {
 			<div className="card-consumer">
 				<h4 className="card-title">Interactive Control Center</h4>
 
-				{/* User Card View */}
+				{/* User Card View
 				<div className="user-info-card">
 					<div className="user-info-item">
 						<User size={16} className="icon" />
@@ -76,13 +76,13 @@ const DeepChild = () => {
 						<span className="info-label">Notifications:</span>
 						<span className="badge-count">{user.notifications}</span>
 					</div>
-				</div>
+				</div> */}
 
 				{/* Action Controls */}
 				<div className="action-controls">
 					{isEditing ? (
 						<form onSubmit={handleSave} className="edit-form">
-							<div className="input-group">
+							{/* <div className="input-group">
 								<label>Name</label>
 								<input
 									type="text"
@@ -122,7 +122,7 @@ const DeepChild = () => {
 									className="btn btn-cancel">
 									Cancel
 								</button>
-							</div>
+							</div> */}
 						</form>
 					) : (
 						<div className="control-buttons">
@@ -132,7 +132,7 @@ const DeepChild = () => {
 								Edit Profile
 							</button>
 							<button onClick={toggleTheme} className="btn btn-secondary">
-								{user.theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}{" "}
+								{/* {user.theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}{" "} */}
 								Toggle Theme
 							</button>
 							<div className="notification-controls">
